@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3><i class="fas fa-money-check"></i> My Account：</h3>
+<table class="table table-sm">
+  <tr>
+    <th>時間</th>
+    <th>項目</th>
+    <th>類別</th>
+    <th>金額</th>
+    <th>功能</th>
+  </tr>
+  {% for expense in expense_list %}
+  <tr>
+    <td>({{ expense.time|date:"l" }}) {{ expense.time }}</td>
+    <td><a href="{{ expense.id }}/update/">{{ expense.item }}</a></td>
+    <td>{{ expense.get_category_display }}</td>
+    <td>{{ expense.amount }}</td>
+    <td><a href="{{ expense.id }}/delete/" class="btn btn-sm btn-danger py-0 px-1"><i class="fas fa-trash-alt"></i> 刪除</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% include 'pagination.html' %}
+{% endblock content %}

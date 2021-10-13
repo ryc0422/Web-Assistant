@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3><i class="fas fa-book"></i> Daily List</h3>
+  <table class="table table-sm">
+    <tr><td>時間</td><td>項目</td><td>功能</td></tr>
+    {% for journal in journal_list %}
+    <tr>
+      <td>({{ journal.created|date:"l" }}){{ journal.created }}</td>
+      <td><a href="{{ journal.id }}/update/">{{journal.content}}</a></td>
+      <td><a href="{{ journal.id }}/delete/" class="btn btn-sm btn-danger py-0 px-1"><i class="fas fa-trash-alt"></i> 刪除</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% include 'pagination.html' %}
+{% endblock %}
