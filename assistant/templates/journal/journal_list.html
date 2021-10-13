@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h3><i class="fas fa-book"></i> Daily List</h3>
+  <h3><i class="fas fa-book"></i> Daily Note</h3>
   <table class="table table-sm">
-    <tr><td>時間</td><td>項目</td><td>功能</td></tr>
+    <tr><td>時間</td><td>項目</td><td>操作</td></tr>
     {% for journal in journal_list %}
     <tr>
       <td>({{ journal.created|date:"l" }}){{ journal.created }}</td>
